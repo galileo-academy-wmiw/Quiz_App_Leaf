@@ -16,14 +16,13 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   int questionNumber = 0;
   int score = 0;
-  int totalQuestions = 1;
 
   @override
   Widget build(BuildContext context) {
-    if (questionNumber >= totalQuestions){
+    if (questionNumber >= lib.questions.length){
       return QuizResult();
     }else{
-      return QuizQuestion();
+      return QuizQuestion(questionNumber, score);
     }
   }
 }

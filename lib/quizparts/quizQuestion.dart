@@ -5,7 +5,10 @@ import 'package:quiz_app/library.dart' as lib;
 import 'answerbutton.dart';
 
 class QuizQuestion extends StatelessWidget {
-  const QuizQuestion({Key? key}) : super(key: key);
+  QuizQuestion(this.questionNumber, this.score);
+
+  final int questionNumber;
+  final int score;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +20,14 @@ class QuizQuestion extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(left: lib.textMargin),
               child: Text(
-                "question 1 of 5",
+                "question " + (questionNumber + 1).toString() + " of " + lib.questions.length.toString(),
                 style: lib.baseText,
               ),
             ),
             Container(
               padding: EdgeInsets.only(right: lib.textMargin),
               child: Text(
-                "score: 10",
+                "score: $score",
                 style: lib.baseText,
               ),
             )
@@ -34,28 +37,35 @@ class QuizQuestion extends StatelessWidget {
           margin: EdgeInsets.symmetric(vertical: 10),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 0.25,
-          child: Image.asset('assets/images/vraag01.png', fit: BoxFit.fitWidth,),
+          child: Image.asset('assets/images/' + lib.questions[questionNumber]["image"], fit: BoxFit.fitWidth,),
         ),
         ConstrainedBox(
             constraints: BoxConstraints(minHeight: 50),
           child: Container(
-            child: Text('what is your favorite color'),
+            child: Center(
+                child: Text(lib.questions[questionNumber]["question"], style: lib.headingText,)
+            ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            AnswerButton(),
-            AnswerButton(),
-          ],
+        for(int i = 0; i < lib.questions[questionNumber]["answers"].length; i+=2) makeButtonRow(questionNumber, i)
+      ],
+    );
+  }
+
+  Widget makeButtonRow(questionNumber, answerNumber){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        AnswerButton(
+            lib.questions[questionNumber]["answers"][answerNumber],
+            lib.questions[questionNumber]["rightAnswer"] == answerNumber
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            AnswerButton(),
-            AnswerButton(),
-          ],
-        )
+        if(answerNumber + 1 < lib.questions[questionNumber]["answers"].length)
+          AnswerButton(
+              lib.questions[questionNumber]["answers"][answerNumber+1],
+              lib.questions[questionNumber]["rightAnswer"] == answerNumber + 1
+          )
+        //if ends here just putting this comment so i don't get confused by lack of  {}
       ],
     );
   }

@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/library.dart' as lib;
 
 class AnswerButton extends StatefulWidget {
-  const AnswerButton({Key? key}) : super(key: key);
+  AnswerButton(this.answer, this.isCorrect);
+
+  final bool isCorrect;
+  final String answer;
 
   @override
   State<AnswerButton> createState() => _AnswerButtonState();
@@ -38,7 +41,7 @@ class _AnswerButtonState extends State<AnswerButton> {
           ),
           child: Center(
             child: Text(
-              "answer",
+              widget.answer,
               textAlign: TextAlign.center,
               style: lib.baseText,
             ),
