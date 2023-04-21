@@ -5,10 +5,11 @@ import 'package:quiz_app/library.dart' as lib;
 import 'answerbutton.dart';
 
 class QuizQuestion extends StatelessWidget {
-  QuizQuestion(this.questionNumber, this.score);
+  QuizQuestion(this.questionNumber, this.score, this.processAnswer);
 
   final int questionNumber;
   final int score;
+  final Function processAnswer;
 
   @override
   Widget build(BuildContext context) {
@@ -58,12 +59,14 @@ class QuizQuestion extends StatelessWidget {
       children: [
         AnswerButton(
             lib.questions[questionNumber]["answers"][answerNumber],
-            lib.questions[questionNumber]["rightAnswer"] == answerNumber
+            lib.questions[questionNumber]["rightAnswer"] == answerNumber,
+            processAnswer
         ),
         if(answerNumber + 1 < lib.questions[questionNumber]["answers"].length)
           AnswerButton(
               lib.questions[questionNumber]["answers"][answerNumber+1],
-              lib.questions[questionNumber]["rightAnswer"] == answerNumber + 1
+              lib.questions[questionNumber]["rightAnswer"] == answerNumber + 1,
+              processAnswer
           )
         //if ends here just putting this comment so i don't get confused by lack of  {}
       ],
