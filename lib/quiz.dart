@@ -13,9 +13,19 @@ class Quiz extends StatefulWidget {
   State<Quiz> createState() => _QuizState();
 }
 
-class _QuizState extends State<Quiz> {
+class _QuizState extends State<Quiz> with AutomaticKeepAliveClientMixin {
   int questionNumber = 0;
   int score = 0;
+
+  @override
+  void initState() {
+    lib.restartQuiz.stream.listen((restartQuiz) {
+      setState(() {
+        questionNumber = score = 0;
+      });
+    });
+    super.initState();
+  }
 
   void processAnswer(bool isCorrect){
     if(isCorrect){
@@ -28,10 +38,16 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     if (questionNumber >= lib.questions.length){
-      return QuizResult();
+      return QuizResult(score);
     }else{
       return QuizQuestion(questionNumber, score, processAnswer);
     }
+  }
+
+  @override
+  bool get wantKeepAlive{
+    return true;
   }
 }

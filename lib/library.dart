@@ -1,5 +1,6 @@
 library lib;
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 const double textMargin = 10.0;
 const TextStyle baseText = TextStyle(fontSize: 16);
@@ -25,3 +26,5 @@ List<dynamic> questions = [
     "image": "vraag03.png"
   }
 ];
+
+StreamController<bool> restartQuiz = StreamController<bool>.broadcast();
