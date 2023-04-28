@@ -25,7 +25,7 @@ class _AnswerButtonState extends State<AnswerButton> with SingleTickerProviderSt
     colorAnimation.addListener(() {setState(() {});});
     colorAnimation.addStatusListener((status) {
       if(status == AnimationStatus.completed){
-        widget.processAnswer;
+        widget.processAnswer(widget.isCorrect);
         animationController.reset();
       }
     });

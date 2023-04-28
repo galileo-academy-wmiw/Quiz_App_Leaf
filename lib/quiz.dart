@@ -28,6 +28,7 @@ class _QuizState extends State<Quiz> with AutomaticKeepAliveClientMixin {
   }
 
   void processAnswer(bool isCorrect){
+    print("processing answer");
     if(isCorrect){
       score++;
     }
