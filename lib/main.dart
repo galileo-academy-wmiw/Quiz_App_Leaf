@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:quiz_app/firebase_options.dart';
 import 'package:quiz_app/library.dart' as lib;
 
 import 'info.dart';
 import 'quiz.dart';
 import 'welcome.dart';
 
-void main() {
+
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  lib.initFireBase();
   runApp(const MyApp());
 }
 
