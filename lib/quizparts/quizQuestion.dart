@@ -38,7 +38,8 @@ class QuizQuestion extends StatelessWidget {
           margin: EdgeInsets.symmetric(vertical: 10),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 0.25,
-          child: Image.asset('assets/images/' + lib.questions[questionNumber]["image"], fit: BoxFit.fitWidth,),
+          //child: Image.asset('assets/images/' + lib.questions[questionNumber]["image"], fit: BoxFit.fitWidth,),
+          child: Image.network(lib.questionImages[questionNumber], fit: BoxFit.fitWidth,),
         ),
         ConstrainedBox(
             constraints: BoxConstraints(minHeight: 50),

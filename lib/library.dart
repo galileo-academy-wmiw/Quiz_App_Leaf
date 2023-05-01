@@ -1,4 +1,5 @@
 library lib;
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -31,8 +32,10 @@ List<dynamic> questionsOLD = [
 ];
 
 List<dynamic> questions = [];
+List<String> questionImages = [];
 
 var db = FirebaseFirestore.instance;
+var firebaseStorage = FirebaseStorage.instance;
 
 void initFireBase() async{
   await Firebase.initializeApp(
@@ -43,12 +46,21 @@ void initFireBase() async{
 
 void setQuestionsFromDB() async{
   await db.collection('questions').get().then((event){
+    //load stuff
     for(var doc in event.docs){
       print("${doc.id} => ${doc.data()}");
       questions.add(doc.data());
     }
+
   });
 
+  //load images from url
+  for(int i = 0; i < questions.length; i++){
+    var ref = firebaseStorage.ref().child(questions[i]["image"]);
+    String url = await ref.getDownloadURL();
+    print(url);
+    questionImages.add(url);
+  }
 }
 
 StreamController<bool> restartQuiz = StreamController<bool>.broadcast();
