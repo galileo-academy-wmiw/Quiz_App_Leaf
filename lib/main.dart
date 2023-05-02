@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:quiz_app/firebase_options.dart';
 import 'package:quiz_app/library.dart' as lib;
 
+import 'authenticationScreen.dart';
 import 'info.dart';
 import 'quiz.dart';
 import 'welcome.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primarySwatch:Colors.blue),
-      home: QuizApp(),
+      home: SelectLoginOrRegisterScreen(),
     );
   }
 }
