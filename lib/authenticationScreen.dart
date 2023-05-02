@@ -13,28 +13,30 @@ class SelectLoginOrRegisterScreen extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       color: Colors.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
-            },
-            child: const Text(
-              "Log in"
-            ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+              },
+              child: const Text(
+                "Log in"
+              ),
 
-          ),
-          ElevatedButton(
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const RegistrationScreen()));
-            },
-            child: const Text(
-              "Register"
             ),
-          )
-        ],
+            ElevatedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const RegistrationScreen()));
+              },
+              child: const Text(
+                "Register"
+              ),
+            )
+          ],
+        ),
       )
     );
   }
