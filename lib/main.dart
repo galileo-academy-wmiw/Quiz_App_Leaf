@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:quiz_app/firebase_options.dart';
 import 'package:quiz_app/library.dart' as lib;
 
@@ -12,21 +13,44 @@ import 'welcome.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  lib.initFireBase();
-  runApp(const MyApp());
+  await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform
+  );
+  lib.setQuestionsFromDB();
+
+  FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    if(user == null){
+      runApp(const MyApp(false));
+    }else{
+      runApp(const MyApp(true));
+    }
+  });
+
+  //fallback app start
+  print("you're not supposed to get here ever");
+  runApp(const MyApp(false));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp(this.userSignedIn,{Key? key}) : super(key: key);
+  final bool userSignedIn;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primarySwatch:Colors.blue),
-      home: SelectLoginOrRegisterScreen(),
-    );
+    if(userSignedIn){
+      return MaterialApp(
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: QuizApp()
+      );
+    }else{
+      return MaterialApp(
+        theme: ThemeData(primarySwatch:Colors.blue),
+        home: SelectLoginOrRegisterScreen(),
+      );
+    }
   }
 }
+
 
 class QuizApp extends StatelessWidget {
   const QuizApp({Key? key}) : super(key: key);

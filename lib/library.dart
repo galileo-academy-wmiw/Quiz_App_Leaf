@@ -1,4 +1,5 @@
 library lib;
+
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -64,5 +65,5 @@ void setQuestionsFromDB() async{
     questionImages.add(url);
   }
 }
-
+late UserCredential credential;
 StreamController<bool> restartQuiz = StreamController<bool>.broadcast();
