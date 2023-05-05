@@ -45,7 +45,7 @@ class RegistrationScreen extends StatelessWidget {
                       );
                       lib.credential = credential;
                       if(context.mounted){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                       }else{
                         print('context not mounted in widget ${toStringShort()}');
                       }
