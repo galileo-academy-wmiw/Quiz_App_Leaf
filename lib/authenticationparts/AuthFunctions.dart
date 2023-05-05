@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/widgets.dart';
 import 'package:quiz_app/library.dart' as lib;
 
 void registerUser(String email, String password) async{

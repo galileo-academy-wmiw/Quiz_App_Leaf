@@ -20,7 +20,7 @@ class SelectLoginOrRegisterScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
               },
               child: const Text(
                 "Log in"
@@ -29,7 +29,7 @@ class SelectLoginOrRegisterScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const RegistrationScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrationScreen()));
               },
               child: const Text(
                 "Register"
