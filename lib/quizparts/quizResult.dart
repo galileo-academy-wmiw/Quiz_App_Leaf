@@ -5,13 +5,13 @@ import 'package:quiz_app/library.dart' as lib;
 class QuizResult extends StatelessWidget {
   final int score;
 
-  QuizResult(this.score);
+  const QuizResult(this.score, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Container(
+        const SizedBox(
           height: 60,
           child: Center(
             child: Text(
@@ -35,9 +35,9 @@ class QuizResult extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(left: 40, right: 40, bottom: 20 ),
+          margin: const EdgeInsets.only(left: 40, right: 40, bottom: 20 ),
           child: ElevatedButton(
-            child: Text(
+            child: const Text(
               'Try Again?',
               style: lib.baseText,
               textScaleFactor: 1.2,

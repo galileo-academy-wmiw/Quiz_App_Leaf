@@ -40,12 +40,12 @@ class MyApp extends StatelessWidget {
     if(userSignedIn){
       return MaterialApp(
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: QuizApp()
+        home: const QuizApp()
       );
     }else{
       return MaterialApp(
         theme: ThemeData(primarySwatch:Colors.blue),
-        home: SelectLoginOrRegisterScreen(),
+        home: const SelectLoginOrRegisterScreen(),
       );
     }
   }
@@ -60,9 +60,9 @@ class QuizApp extends StatelessWidget {
     return DefaultTabController(
         length: 3,
         child: Scaffold(
-          appBar: AppBar(title: Text('Flutter Quiz'),
+          appBar: AppBar(title: const Text('Flutter Quiz'),
           ),
-          bottomNavigationBar: TabBar(
+          bottomNavigationBar: const TabBar(
             indicatorColor: Colors.blueAccent,
             labelColor: Colors.blueAccent,
             tabs: [
@@ -71,7 +71,7 @@ class QuizApp extends StatelessWidget {
               Tab(icon:Icon(Icons.info), text: 'about this app')
             ],
           ),
-          body: TabBarView(
+          body: const TabBarView(
             children: [
               Welcome(),
               Quiz(),

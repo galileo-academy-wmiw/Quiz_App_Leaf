@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/authenticationparts/AuthFunctions.dart';
-import 'dart:async';
 import 'package:quiz_app/library.dart' as lib;
 import 'package:quiz_app/main.dart';
 
@@ -22,7 +20,7 @@ class LoginScreen extends StatelessWidget {
             children: [
               TextField(
                 controller: userNameTextFieldController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Username"
                   )
@@ -30,7 +28,7 @@ class LoginScreen extends StatelessWidget {
               TextField(
                 controller: passWordTextFieldController,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Password"
                 ),
@@ -67,12 +65,12 @@ class LoginScreen extends StatelessWidget {
                     print(e);
                   }
                 },
-                child: Text("Log In"),
+                child: const Text("Log In"),
               )
             ],
           ),
         ),
       ),
-    );;
+    );
   }
 }

@@ -24,7 +24,7 @@ class Welcome extends StatelessWidget {
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SelectLoginOrRegisterScreen()));
                 }
               },
-              child: Text("Sign Out")
+              child: const Text("Sign Out")
           )
         ],
       ),

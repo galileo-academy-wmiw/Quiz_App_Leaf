@@ -19,7 +19,7 @@ class _AnswerButtonState extends State<AnswerButton> with SingleTickerProviderSt
 
   @override
   void initState() {
-    animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
     colorAnimation = ColorTween(begin: Colors.blue[100]).animate(animationController);
     borderAnimation = ColorTween(begin: Colors.blue).animate(animationController);
     colorAnimation.addListener(() {setState(() {});});
@@ -65,7 +65,7 @@ class _AnswerButtonState extends State<AnswerButton> with SingleTickerProviderSt
             decoration: BoxDecoration(
               color: colorAnimation.value,
               borderRadius: BorderRadius.circular(12),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black,
                   blurRadius: 1.0,

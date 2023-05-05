@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/widgets.dart';
 import 'package:quiz_app/library.dart' as lib;
 
 void registerUser(String email, String password) async{
@@ -12,9 +11,9 @@ void registerUser(String email, String password) async{
     lib.credential = credential;
   } on FirebaseAuthException catch (e) {
     if(e.code == "email-already-in-use"){
-      print("email adress ${email} is already in use");
+      print("email address ${email} is already in use");
     }else if(e.code == "invalid-email"){
-      print("email adress is invalid");
+      print("email address is invalid");
     }else if(e.code == "operation-not-allowed"){
       print("operation isn't allowed");
     }else if(e.code == "weak-password"){
