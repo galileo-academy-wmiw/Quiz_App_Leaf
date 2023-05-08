@@ -28,7 +28,7 @@ class QuizQuestion extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(right: lib.textMargin),
               child: Text(
-                "score: $score",
+                "finish quiz before: ${lib.timeToFinish.day}-${lib.timeToFinish.month}-${lib.timeToFinish.year}",
                 style: lib.baseText,
               ),
             )

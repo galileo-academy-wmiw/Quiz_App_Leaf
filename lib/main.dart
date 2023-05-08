@@ -25,10 +25,6 @@ void main() async{
       runApp(const MyApp(true));
     }
   });
-
-  //fallback app start
-  print("you're not supposed to get here ever");
-  runApp(const MyApp(false));
 }
 
 class MyApp extends StatelessWidget {
