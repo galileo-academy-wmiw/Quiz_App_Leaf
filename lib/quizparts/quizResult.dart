@@ -43,6 +43,7 @@ class QuizResult extends StatelessWidget {
               textScaleFactor: 1.2,
             ),
             onPressed: (){
+              lib.submitScore(score);
               lib.restartQuiz.add(true);
             },
           ),

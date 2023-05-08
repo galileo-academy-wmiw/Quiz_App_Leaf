@@ -57,5 +57,18 @@ void setQuestionsFromDB() async{
     questionImages.add(url);
   }
 }
+
+void submitScore(int score) async{
+    final scoreData = {"score": score};
+    FirebaseAuth.instance.authStateChanges().listen((User? user){
+      if(user == null){
+        print("user is not logged in on submitScore, should never happen");
+      }else{
+        db.collection("scores").doc(user.uid).set(scoreData);
+      }
+    });
+}
+
+
 late UserCredential credential;
 StreamController<bool> restartQuiz = StreamController<bool>.broadcast();
