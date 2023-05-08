@@ -17,13 +17,7 @@ class Welcome extends StatelessWidget {
           ElevatedButton(
               onPressed: (){
                 FirebaseAuth.instance.signOut();
-                Navigator.pop(context);
-                if(Navigator.canPop(context)){
-
-                  Navigator.pop(context);
-                }else{
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SelectLoginOrRegisterScreen()));
-                }
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SelectLoginOrRegisterScreen()));
               },
               child: const Text("Sign Out")
           )
