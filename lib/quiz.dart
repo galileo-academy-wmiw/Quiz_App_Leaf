@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:quiz_app/library.dart' as lib;
+import 'package:quiz_app/quizparts/OutOfTimeScreen.dart';
 
 import 'quizparts/quizQuestion.dart';
 import 'quizparts/quizResult.dart';
@@ -40,7 +41,10 @@ class _QuizState extends State<Quiz> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    if (questionNumber >= lib.questions.length){
+    if(lib.timeToFinish.isBefore(DateTime.now())){
+      return const OutOfTimeScreen();
+    }
+    else if (questionNumber >= lib.questions.length){
       return QuizResult(score);
     }else{
       return QuizQuestion(questionNumber, score, processAnswer);
