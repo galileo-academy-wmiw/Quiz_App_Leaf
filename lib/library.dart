@@ -40,8 +40,8 @@ void setQuestionsFromDB() async {
     for (var doc in event.docs) {
       print("${doc.id} => ${doc.data()}");
       timestamp = doc.data()['time'];
-      timeToFinish = DateTime.fromMicrosecondsSinceEpoch(
-          timestamp.microsecondsSinceEpoch);
+      timeToFinish =
+          DateTime.fromMicrosecondsSinceEpoch(timestamp.microsecondsSinceEpoch);
       print(timeToFinish);
     }
   });
@@ -62,37 +62,21 @@ void submitScore(int score) async {
     } else {
       final scoreData = {"score": score, "uid": user.uid};
       db.collection("scores").doc(user.uid).set(scoreData);
-
-
     }
   });
 }
 
 Future<bool> doesUserAnswerExist() async {
+  var uid = FirebaseAuth.instance.currentUser?.uid ?? 0;
   bool answerExists = false;
-
-
-  FirebaseAuth.instance.authStateChanges().listen((User? user) {
-    if(user == null){
-      print("user is not logged in on doesUserAnswerExist");
-      answerExists = true;//it's not actually true but i don't want anyone not logged in to submit
+  await db.collection("scores").where("uid", isEqualTo: uid).get().then(
+      (querySnapShot) {
+    print("successfully completed");
+    for (var docSnapshot in querySnapShot.docs) {
+      answerExists = true;
+      print("${docSnapshot.id} => ${docSnapshot.data()}");
     }
-    else{
-      db
-          .collection("scores")
-          .where("uid", isEqualTo: user.uid)
-          .get()
-          .then((querySnapShot) {
-        print("successfully completed");
-        for (var docSnapshot in querySnapShot.docs) {
-          print("${docSnapshot.id} => ${docSnapshot.data()}");
-          answerExists = true;
-        }
-      },
-          onError: (e) => print("Error completing: $e")
-      );
-    }
-  });
+  }, onError: (e) => print("Error completing: $e"));
   return answerExists;
 }
 
