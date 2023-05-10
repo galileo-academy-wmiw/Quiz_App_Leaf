@@ -47,7 +47,7 @@ class _QuizState extends State<Quiz> with AutomaticKeepAliveClientMixin {
           if (snapshot.hasData) {
             print(snapshot.data);
             if (snapshot.data == true) {
-              return AlreadySentScreen();
+              return const AlreadySentScreen();
             } else if (lib.timeToFinish.isBefore(DateTime.now())) {
               return const OutOfTimeScreen();
             } else if (questionNumber >= lib.questions.length) {
