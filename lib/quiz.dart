@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:quiz_app/library.dart' as lib;
+import 'package:quiz_app/quizparts/AlreadySentScreen.dart';
 import 'package:quiz_app/quizparts/OutOfTimeScreen.dart';
 
 import 'quizparts/quizQuestion.dart';
 import 'quizparts/quizResult.dart';
 
 class Quiz extends StatefulWidget {
-
   const Quiz({Key? key}) : super(key: key);
 
   @override
@@ -28,9 +28,9 @@ class _QuizState extends State<Quiz> with AutomaticKeepAliveClientMixin {
     super.initState();
   }
 
-  void processAnswer(bool isCorrect){
+  void processAnswer(bool isCorrect) {
     print("processing answer");
-    if(isCorrect){
+    if (isCorrect) {
       score++;
     }
     setState(() {
@@ -41,18 +41,31 @@ class _QuizState extends State<Quiz> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    if(lib.timeToFinish.isBefore(DateTime.now())){
-      return const OutOfTimeScreen();
-    }
-    else if (questionNumber >= lib.questions.length){
-      return QuizResult(score);
-    }else{
-      return QuizQuestion(questionNumber, score, processAnswer);
-    }
+    return FutureBuilder<Object>(
+        future: lib.doesUserAnswerExist(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            print(snapshot.data);
+            if (snapshot.data == true) {
+              return AlreadySentScreen();
+            } else if (lib.timeToFinish.isBefore(DateTime.now())) {
+              return const OutOfTimeScreen();
+            } else if (questionNumber >= lib.questions.length) {
+              return QuizResult(score);
+            } else {
+              return QuizQuestion(questionNumber, score, processAnswer);
+            }
+          } else {
+            //just show white screen while loading
+            return Container(
+              color: Colors.white,
+            );
+          }
+        });
   }
 
   @override
-  bool get wantKeepAlive{
+  bool get wantKeepAlive {
     return true;
   }
 }
