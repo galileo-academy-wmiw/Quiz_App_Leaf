@@ -84,23 +84,19 @@ class RegistrationScreen extends StatelessWidget {
                         }
                       } on FirebaseAuthException catch (e) {
                         if(e.code == "email-already-in-use"){
-                          print("email address ${userNameTextFieldController.text} is already in use");
                           showErrorDialog("email adress ${userNameTextFieldController.text} is already in use", context);
                         }else if(e.code == "invalid-email"){
-                          print("email address is invalid");
                           showErrorDialog("email adress is invalid", context);
                         }else if(e.code == "operation-not-allowed"){
-                          print("operation isn't allowed");
                           showErrorDialog("operation is not allowed", context);
                         }else if(e.code == "weak-password"){
-                          print("this password isn't secure");
                           showErrorDialog("this password isn't secure, pick a different one", context);
                         }else{
-                          print("we didn't write a special message for this error. here's the error code: ${e.code}");
+                          showErrorDialog("we didn't write a special message for this error. here's the error code: ${e.code}", context);
                         }
 
                       } catch(e){
-                        print(e);
+                        showErrorDialog(e.toString(), context);
                       }
                     },
                     child: const Text("Register", style: lib.headingText,textScaleFactor: 1.5, ),

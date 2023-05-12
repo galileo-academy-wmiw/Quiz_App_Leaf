@@ -88,24 +88,19 @@ class LoginScreen extends StatelessWidget {
 
                     }on FirebaseAuthException catch (e){
                       if(e.code == "wrong-password"){
-                        print("wrong password");
                         showErrorDialog("wrong password", context);
                       }else if(e.code == "invalid-email"){
-                        print("invalid email");
                         showErrorDialog("invalid email", context);
                       }else if(e.code == "user-disabled"){
-                        print("this user is disabled");
                         showErrorDialog("this user is disabled", context);
                       }else if(e.code == "user-not-found"){
-                        print("this user doesn't exist");
                         showErrorDialog("this user doesn't exist", context);
                       }else{
-                        print(e.code);
                         showErrorDialog("we didn't write a special message for this error. here's the error code: ${e.code}", context);
                       }
 
                     }catch(e){
-                      print(e);
+                      showErrorDialog(e.toString(), context);
                     }
                   },
                   child: const Text("Log In", style: lib.headingText, textScaleFactor: 1.5,),
