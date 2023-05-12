@@ -36,9 +36,9 @@ class LoginScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Center(
-        child: Container(
-          color: Colors.white,
+      body: Container(
+        color: Colors.white,
+        child: Center(
           child: SizedBox(
             width: (screenWidth/6)*5,
             child: Column(
@@ -96,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                         showErrorDialog("this user doesn't exist", context);
                       }else{
                         print(e.code);
-                        showErrorDialog(e.code, context);
+                        showErrorDialog("we didn't write a special message for this error. here's the error code: ${e.code}", context);
                       }
 
                     }catch(e){

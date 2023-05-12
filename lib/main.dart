@@ -36,12 +36,14 @@ class MyApp extends StatelessWidget {
     if(userSignedIn){
       return MaterialApp(
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const QuizApp()
+        home: const QuizApp(),
+        debugShowCheckedModeBanner: false,
       );
     }else{
       return MaterialApp(
         theme: ThemeData(primarySwatch:Colors.blue),
         home: const SelectLoginOrRegisterScreen(),
+        debugShowCheckedModeBanner: false,
       );
     }
   }
