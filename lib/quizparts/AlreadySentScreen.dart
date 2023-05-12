@@ -48,7 +48,7 @@ class AlreadySentScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: const [
                 Text("sorry", style: lib.headingText, textScaleFactor: 4, ),
                 Text("This spooky ghost won't allow you to send in a quiz twice.", style: lib.baseText, textScaleFactor: 1.25,),
                 Text("No worries tho, there's always next time",style: lib.baseText, textScaleFactor: 1.25,),
