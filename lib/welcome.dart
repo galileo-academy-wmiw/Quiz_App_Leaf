@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/authenticationScreen.dart';
+import 'package:quiz_app/authentication_screen.dart';
 import 'package:quiz_app/library.dart' as lib;
 
 class Welcome extends StatelessWidget {

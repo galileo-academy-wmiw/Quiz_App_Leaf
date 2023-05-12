@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:quiz_app/firebase_options.dart';
 import 'package:quiz_app/library.dart' as lib;
 
-import 'authenticationScreen.dart';
+import 'authentication_screen.dart';
 import 'info.dart';
 import 'quiz.dart';
 import 'welcome.dart';

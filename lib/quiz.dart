@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:quiz_app/library.dart' as lib;
-import 'package:quiz_app/quizparts/AlreadySentScreen.dart';
-import 'package:quiz_app/quizparts/OutOfTimeScreen.dart';
+import 'package:quiz_app/quizparts/already_sent_screen.dart';
+import 'package:quiz_app/quizparts/out_of_time_screen.dart';
 
-import 'quizparts/quizQuestion.dart';
-import 'quizparts/quizResult.dart';
+import 'quizparts/quiz_question.dart';
+import 'quizparts/quiz_result.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/authenticationparts/LoginScreen.dart';
+import 'package:quiz_app/authenticationparts/login_screen.dart';
 import 'package:quiz_app/library.dart' as lib;
 
 
