@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/rendering.dart';
 import 'package:quiz_app/firebase_options.dart';
 import 'dart:async';
 import 'dart:core';
@@ -13,6 +14,11 @@ const double textMargin = 10.0;
 const TextStyle baseText = TextStyle(fontSize: 16);
 const TextStyle headingText =
     TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
+ButtonStyle authenticationScreensButtonStyle = const ButtonStyle(
+  backgroundColor: MaterialStatePropertyAll<Color>(Colors.grey),
+  padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.all(8.0)),
+);
+
 
 List<dynamic> questions = [];
 List<String> questionImages = [];

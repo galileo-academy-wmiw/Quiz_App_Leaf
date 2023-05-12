@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        color: Colors.blue,
         child: Center(
           child: SizedBox(
             width: (screenWidth/6)*5,
@@ -51,6 +51,8 @@ class LoginScreen extends StatelessWidget {
                     controller: userNameTextFieldController,
                       decoration: const InputDecoration(
                           border: OutlineInputBorder(),
+                          fillColor: Colors.white,
+                          filled: true,
                           labelText: "Username"
                       )
                   ),
@@ -62,11 +64,14 @@ class LoginScreen extends StatelessWidget {
                     obscureText: true,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
+                        fillColor: Colors.white,
+                        filled: true,
                         labelText: "Password"
                     ),
                   ),
                 ),
                 ElevatedButton(
+                  style: lib.authenticationScreensButtonStyle,
                   onPressed: () async {
                     UserCredential credential;
                     try{
@@ -103,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                       print(e);
                     }
                   },
-                  child: const Text("Log In"),
+                  child: const Text("Log In", style: lib.headingText, textScaleFactor: 1.5,),
                 )
               ],
             ),

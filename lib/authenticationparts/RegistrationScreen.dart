@@ -33,7 +33,7 @@ class RegistrationScreen extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        color: Colors.blue,
         child: Center(
           child: SizedBox(
             width: (screenWidth/6)*5,
@@ -47,6 +47,8 @@ class RegistrationScreen extends StatelessWidget {
                     controller: userNameTextFieldController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
+                      fillColor: Colors.white,
+                      filled: true,
                       labelText: "Username"
                     )
                   ),
@@ -58,11 +60,14 @@ class RegistrationScreen extends StatelessWidget {
                     obscureText: true,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
+                      fillColor: Colors.white,
+                      filled: true,
                       labelText: "Password"
                     ),
                   ),
                 ),
                 ElevatedButton(
+                  style: lib.authenticationScreensButtonStyle,
                     onPressed: () async{
 
                       UserCredential credential;
@@ -98,7 +103,7 @@ class RegistrationScreen extends StatelessWidget {
                         print(e);
                       }
                     },
-                    child: const Text("Register"),
+                    child: const Text("Register", style: lib.headingText,textScaleFactor: 1.5, ),
                 )
               ],
             ),
