@@ -5,7 +5,7 @@ import 'package:quiz_app/library.dart' as lib;
 import 'answer_button.dart';
 
 class QuizQuestion extends StatelessWidget {
-  const QuizQuestion(this.questionNumber, this.score, this.processAnswer);
+  const QuizQuestion(this.questionNumber, this.score, this.processAnswer, {super.key});
 
   final int questionNumber;
   final int score;

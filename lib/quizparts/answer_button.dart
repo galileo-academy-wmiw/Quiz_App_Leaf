@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/library.dart' as lib;
 
 class AnswerButton extends StatefulWidget {
-  AnswerButton(this.answer, this.isCorrect, this.processAnswer);
+  const AnswerButton(this.answer, this.isCorrect, this.processAnswer, {super.key});
 
   final bool isCorrect;
   final String answer;
