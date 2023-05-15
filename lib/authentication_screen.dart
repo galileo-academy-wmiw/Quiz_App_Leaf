@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:quiz_app/library.dart' as lib;
-import 'package:quiz_app/authenticationparts/login_screen.dart';
-import 'package:quiz_app/authenticationparts/registration_screen.dart';
+import 'package:quiz_app/authentication_parts/login_screen.dart';
+import 'package:quiz_app/authentication_parts/registration_screen.dart';
 
 class SelectLoginOrRegisterScreen extends StatelessWidget {
   const SelectLoginOrRegisterScreen({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/authenticationparts/login_screen.dart';
+import 'package:quiz_app/authentication_parts/login_screen.dart';
 import 'package:quiz_app/library.dart' as lib;
 
 
@@ -84,9 +84,9 @@ class RegistrationScreen extends StatelessWidget {
                         }
                       } on FirebaseAuthException catch (e) {
                         if(e.code == "email-already-in-use"){
-                          showErrorDialog("email adress ${userNameTextFieldController.text} is already in use", context);
+                          showErrorDialog("email address ${userNameTextFieldController.text} is already in use", context);
                         }else if(e.code == "invalid-email"){
-                          showErrorDialog("email adress is invalid", context);
+                          showErrorDialog("email address is invalid", context);
                         }else if(e.code == "operation-not-allowed"){
                           showErrorDialog("operation is not allowed", context);
                         }else if(e.code == "weak-password"){
