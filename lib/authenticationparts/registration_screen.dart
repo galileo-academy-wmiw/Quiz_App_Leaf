@@ -99,7 +99,7 @@ class RegistrationScreen extends StatelessWidget {
                         showErrorDialog(e.toString(), context);
                       }
                     },
-                    child: const Text("Register", style: lib.headingText,textScaleFactor: 1.5, ),
+                    child: const Text("Register", style: lib.buttonText,textScaleFactor: 1.5, ),
                 )
               ],
             ),

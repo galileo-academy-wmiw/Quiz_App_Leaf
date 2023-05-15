@@ -101,7 +101,7 @@ class LoginScreen extends StatelessWidget {
                       showErrorDialog(e.toString(), context);
                     }
                   },
-                  child: const Text("Log In", style: lib.headingText, textScaleFactor: 1.5,),
+                  child: const Text("Log In", style: lib.buttonText, textScaleFactor: 1.5,),
                 )
               ],
             ),
