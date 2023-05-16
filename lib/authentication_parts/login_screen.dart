@@ -79,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                       );
                       lib.credential = credential;
                       if(context.mounted){
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const QuizApp()));
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const QuizApp()), (route) => false);
                       }else{
                         print('context not mounted in widget ${toStringShort()}');
                       }
