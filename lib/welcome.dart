@@ -9,17 +9,35 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.yellow,
+      color: Colors.blue,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ElevatedButton(
-              onPressed: (){
-                FirebaseAuth.instance.signOut();
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SelectLoginOrRegisterScreen()));
-              },
-              child: const Text("Sign Out")
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'QUIZ APP',
+              style: lib.titleText,
+              textScaleFactor: 2,
+            ), //this generates a line. i genuinely have no clue why
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const SelectLoginOrRegisterScreen()));
+                },
+                style: lib.authenticationScreensButtonStyle,
+                child: const Text(
+                  "Sign Out",
+                  style: lib.buttonText,
+                )),
           )
         ],
       ),

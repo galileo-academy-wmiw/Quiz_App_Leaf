@@ -17,15 +17,15 @@ class OutOfTimeScreen extends StatelessWidget {
             children: [
               FaIcon(
                 FontAwesomeIcons.hippo,
-                size: (screenWidth / 6) * 5,
+                size: (screenWidth / 6) * 4, //somehow this looks closer to 5/6th of the screen width, i think the math is a little borked for the hippo icon
                 color: Colors.amber,
               ),
               SizedBox(
                 width: (screenWidth / 6) * 5,
-                child: Column(
+                child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "sorry",
                       style: lib.headingText,
