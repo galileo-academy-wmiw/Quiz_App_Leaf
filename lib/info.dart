@@ -8,7 +8,6 @@ class Info extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       color: Colors.white,
       child: Padding(
@@ -22,7 +21,7 @@ class Info extends StatelessWidget {
               size: (screenWidth / 6) * 4,
               color: Colors.green,
             ),
-            Column(
+            const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
