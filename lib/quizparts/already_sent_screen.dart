@@ -44,10 +44,10 @@ class AlreadySentScreen extends StatelessWidget {
           FaIcon(FontAwesomeIcons.ghost, size: (screenWidth/6)*5, color: ghostColor,),
           SizedBox(
             width: (screenWidth/6)*5,
-            child: Column(
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
+              children: [
                 Text("sorry", style: lib.headingText, textScaleFactor: 4, ),
                 Text("This spooky ghost won't allow you to send in a quiz twice.", style: lib.baseText, textScaleFactor: 1.25,),
                 Text("No worries tho, there's always next time",style: lib.baseText, textScaleFactor: 1.25,),

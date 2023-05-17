@@ -43,8 +43,7 @@ void setQuestionsFromDB() async {
     //load stuff
     for (var doc in event.docs) {
       print("${doc.id} => ${doc.data()}");
-      questions.add(doc.data());
-    }
+      questions.add(doc.data());}
   });
 
   await db.collection('timeToFinishAt').get().then((event) {
