@@ -26,10 +26,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -54,9 +51,19 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDKJEPn120eMZkJLyAU6mnAraWitBPvxBw',
-    appId: '1:985769151753:android:83693d8b216591b23817d8',
+    appId: '1:985769151753:android:8e244a8cb82c7d1b3817d8',
     messagingSenderId: '985769151753',
     projectId: 'oefen-quiz-app-leaf',
     storageBucket: 'oefen-quiz-app-leaf.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyBq2KjZJfGP3w7CkEjBGfIBuubGupgCq9s',
+    appId: '1:985769151753:ios:62afae2ae13ead743817d8',
+    messagingSenderId: '985769151753',
+    projectId: 'oefen-quiz-app-leaf',
+    storageBucket: 'oefen-quiz-app-leaf.appspot.com',
+    iosClientId: '985769151753-5hd8o7r5k23l29mip1kldjn501csuing.apps.googleusercontent.com',
+    iosBundleId: 'com.galileoacademy.quizApp',
   );
 }

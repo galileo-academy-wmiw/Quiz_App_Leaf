@@ -33,6 +33,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985769151753:android:8e244a8cb82c7d1b3817d8",
+        "android_client_info": {
+          "package_name": "com.galileoacademy.quiz_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985769151753-f044i32vlehjfug7tulhroh0eu7tgqet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKJEPn120eMZkJLyAU6mnAraWitBPvxBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985769151753-f044i32vlehjfug7tulhroh0eu7tgqet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
