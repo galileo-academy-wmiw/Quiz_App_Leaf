@@ -15,7 +15,7 @@ class QuizQuestion extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Row(
+        Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
